@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="500" viewBox="0 0 860 500" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
+  <rect width="860" height="500" rx="10" fill="#0d1117"/>
+  <rect width="860" height="34" rx="10" fill="#161b22"/>
+  <rect y="24" width="860" height="10" fill="#161b22"/>
+  <circle cx="20" cy="17" r="5.5" fill="#ff5f57"/>
+  <circle cx="40" cy="17" r="5.5" fill="#febc2e"/>
+  <circle cx="60" cy="17" r="5.5" fill="#28c840"/>
+  <text x="430" y="21" text-anchor="middle" fill="#8b949e" font-size="12">codex-companion — parallel diagnose + fix (real session output)</text>
+
+  <g fill="#c9d1d9">
+    <text x="24" y="62"><tspan fill="#484f58">[20:57:28]</tspan> <tspan fill="#d2a8ff">codex_async</tspan> diagnose <tspan fill="#8b949e">(sandbox: read-only)</tspan>  <tspan fill="#484f58">→</tspan> Task <tspan fill="#79c0ff">1861cd33</tspan></text>
+    <text x="24" y="84"><tspan fill="#484f58">[20:57:28]</tspan> <tspan fill="#d2a8ff">codex_async</tspan> fix <tspan fill="#8b949e">(worktree: true)</tspan>            <tspan fill="#484f58">→</tspan> Task <tspan fill="#79c0ff">aff8a7be</tspan> <tspan fill="#8b949e">· branch codex-swarm/aff8a7be</tspan></text>
+
+    <text x="24" y="114"><tspan fill="#484f58">[20:57:49]</tspan> <tspan fill="#d2a8ff">codex_status</tspan> <tspan fill="#8b949e">— live view while both run in parallel:</tspan></text>
+    <text x="24" y="136">  <tspan fill="#79c0ff">1861cd33</tspan> running · exec_command(<tspan fill="#a5d6ff">pytest -q -p no:cacheprovider</tspan>)</text>
+    <text x="24" y="158">  <tspan fill="#79c0ff">aff8a7be</tspan> running · exec_command(<tspan fill="#a5d6ff">rg --files -g 'bookings.py' -g 'test*.py' ...</tspan>)</text>
+
+    <text x="24" y="188"><tspan fill="#484f58">[20:58:14]</tspan> <tspan fill="#79c0ff">1861cd33</tspan> <tspan fill="#3fb950">COMPLETED in 45s</tspan></text>
+    <text x="24" y="210"><tspan fill="#484f58">[20:59:04]</tspan> <tspan fill="#79c0ff">aff8a7be</tspan> <tspan fill="#3fb950">COMPLETED in 70s</tspan> <tspan fill="#8b949e">· commit ef3e5a7 "Fix busy slot merging"</tspan></text>
+
+    <text x="24" y="240"><tspan fill="#d2a8ff">codex_wait</tspan> <tspan fill="#484f58">→</tspan> <tspan fill="#8b949e">both results, ~1 KB each:</tspan></text>
+    <text x="24" y="262">  <tspan fill="#79c0ff">A</tspan> <tspan fill="#e3b341">{"bugs":[{"test":"test_adjacent_slots_merge",</tspan></text>
+    <text x="24" y="282">    <tspan fill="#e3b341">"root_cause":"start &lt; last_end excludes adjacent intervals",</tspan></text>
+    <text x="24" y="302">    <tspan fill="#e3b341">"minimal_fix":"Change `if start &lt; last_end:` to `&lt;=`"}, ...]}</tspan></text>
+    <text x="24" y="326">  <tspan fill="#79c0ff">B</tspan> Fixed and committed bookings.py — all 4 tests pass</text>
+    <text x="24" y="348">    <tspan fill="#8b949e">verified independently: pytest in the worktree → </tspan><tspan fill="#3fb950">4 passed</tspan><tspan fill="#8b949e">, main tree untouched</tspan></text>
+
+    <text x="24" y="378"><tspan fill="#484f58">[21:06:16]</tspan> <tspan fill="#d2a8ff">codex_reply</tspan> <tspan fill="#8b949e">(same thread, 7 s later — full context retained):</tspan></text>
+    <text x="24" y="400">  <tspan fill="#8b949e">"which single operator change fixes the adjacent-slot bug?"</tspan></text>
+    <text x="24" y="422">  <tspan fill="#c9d1d9">→ "Change `&lt;` to `&lt;=` in `if start &lt; last_end:`."</tspan></text>
+
+    <text x="24" y="462" fill="#484f58">Claude kept working the whole time — Codex ran as background tasks.</text>
+  </g>
+</svg>

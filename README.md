@@ -14,6 +14,11 @@ Claude ──┬─▶ codex_async (read-only diagnosis)  ──┐
          └─▶ keeps working on its own analysis  ──┘
 ```
 
+Real session output from the validation trial (two planted bugs, diagnosed
+and fixed in parallel):
+
+![Parallel diagnose + fix demo](docs/demo.svg)
+
 ## What's inside
 
 - **Bundled MCP server** — [codex-mcp-swarm](https://github.com/TKasperczyk/codex-mcp-swarm)
