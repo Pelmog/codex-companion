@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "codex": {
+      "command": "uvx",
+      "args": [
+        "codex-mcp-swarm@1.7.0",
+        "-c", "approval_policy=never",
+        "-c", "sandbox_mode=workspace-write",
+        "-c", "model_reasoning_effort=medium",
+        "--skip-git-repo-check"
+      ]
+    }
+  }
+}

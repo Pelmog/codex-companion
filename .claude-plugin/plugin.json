@@ -1,0 +1,11 @@
+{
+  "name": "codex-companion",
+  "version": "0.1.0",
+  "description": "Use OpenAI Codex as a headless debug companion: parallel second opinions, persistent investigation threads, worktree-isolated fixes, and adversarial verification — via a bundled async MCP bridge (codex-mcp-swarm).",
+  "author": {
+    "name": "Gordon McLennan"
+  },
+  "repository": "https://github.com/pelmog/codex-companion",
+  "license": "MIT",
+  "keywords": ["codex", "openai", "debugging", "second-opinion", "mcp", "multi-agent"]
+}

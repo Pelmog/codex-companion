@@ -1,0 +1,13 @@
+{
+  "name": "codex-companion-marketplace",
+  "owner": {
+    "name": "Gordon McLennan"
+  },
+  "plugins": [
+    {
+      "name": "codex-companion",
+      "source": "./",
+      "description": "Use OpenAI Codex as a headless debug companion: parallel second opinions, persistent investigation threads, worktree-isolated fixes, and adversarial verification."
+    }
+  ]
+}
